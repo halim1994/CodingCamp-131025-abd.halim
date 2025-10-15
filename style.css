@@ -1,0 +1,171 @@
+/* Struktur File CSS Memenuhi Ketentuan */
+/* Penggunaan Grid/Flexbox untuk desain responsif */
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Batasan maksimum untuk desktop */
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+/* Form Input - Menggunakan Flexbox untuk tampilan baris yang rapi */
+#todo-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#todo-input, #date-input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+#todo-input {
+    flex-grow: 2; /* Agar input kegiatan mengambil lebih banyak ruang */
+}
+
+#date-input {
+    flex-grow: 1;
+}
+
+#add-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-button:hover {
+    background-color: #2980b9;
+}
+
+/* Controls (Filter) */
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+#filter-status {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* To-Do List Styling */
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+#todo-list li {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+#todo-list li.completed {
+    background-color: #ecf0f1;
+    text-decoration: line-through;
+    color: #95a5a6;
+}
+
+.todo-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-text {
+    font-weight: bold;
+}
+
+.todo-date {
+    font-size: 0.8em;
+    color: #7f8c8d;
+    margin-top: 3px;
+}
+
+.actions button {
+    margin-left: 8px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.actions .complete-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.actions .delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+/* Responsiveness: Media Query untuk layar kecil (Mobile) */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    /* Tumpuk input dan tombol Tambah secara vertikal di layar kecil */
+    #todo-form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #todo-input, #date-input, #add-button {
+        width: 100%;
+    }
+
+    #todo-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .actions {
+        margin-top: 10px;
+    }
+}
